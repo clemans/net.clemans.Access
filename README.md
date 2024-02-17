@@ -66,10 +66,6 @@
 The infrastructure within this project is built exclusively on the
 *AWS Cloud Development Kit ([AWS CDK][AWSCDK-url])*.
 
-### Resources
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 Below are the major frameworks/libraries used to bootstrap this project.
@@ -91,7 +87,7 @@ For a manual deployment, follow the below instructions and prerequisites.
 *Install the latest version of Node.js and NPM using the Node version manager
 ['NVM'](https://nvm.sh/).
 
-- npm
+- NPM
 
   ```bash
   curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh |
@@ -99,7 +95,7 @@ For a manual deployment, follow the below instructions and prerequisites.
   nvm install node
   ```
 
-- cdk
+- AWS-CDK
 
   ```bash
   npm install --global aws-cdk
@@ -120,19 +116,21 @@ AWS CloudFormation stack(s).*
    git clone https://github.com/clemans/net.clemans.Access.git
    ```
 
-3. Install NPM packages
+3. Configure `.env` & `config/parameters.ts` files relative to your own setup.
+
+4. Install NPM packages
 
    ```bash
    npm install
    ```
 
-4. Deploy the AWS CDK CloudFormation stack(s)
+5. Deploy the AWS CDK CloudFormation stack(s)
 
    ```bash
    npm run start
    ```
 
-5. Destroy the AWS CDK CloudFormation stack(s)
+6. Destroy the AWS CDK CloudFormation stack(s)
 
     ```bash
     npm run destroy
@@ -142,15 +140,16 @@ AWS CloudFormation stack(s).*
 
 ## Roadmap
 
-  | TO DO          | Description                                    | Status
-  | --             | --                                             | --
+  | TO DO           | Description                                    | Status
+  | --              | --                                             | --
   | IUser           | Adds IAM User support                          | ✅
   | IGroup          | Adds IAM Group support                         | ✅
-  | IPolicy         | Adds IAM Principal & Policy Support            | 🚧 WIP
-  | IRole           | Adds IAM Role support                          | 🚧 WIP
-  | GitHub Actions | Continuous integration and project automation  | 📚 Backlog
+  | IPolicy         | Adds IAM Policy Support                        | ✅
+  | IRole           | Adds IAM Role support                          | ✅
+  | Unit Coverage   | Adds Jest Unit Test support                    | 📝 WIP
+  | GitHub Actions  | Continuous integration and project automation  | 📚 Backlog
 
-See the [open issues](https://github.com/clemans/net.clemans.Access/issues)
+See the [open issues][GitHubIssue-url]
 for a full list of proposed features and known issues.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -179,7 +178,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
-Open a [GitHub Issue](https://github.com/clemans/net.clemans.Access/issues)
+Open a [GitHub Issue][GitHubIssue-url].
 
 ## Acknowledgments
 
@@ -191,13 +190,14 @@ Thanks to all the projects and services to making this possible:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[AwsCdk]: https://img.shields.io/badge/AWS%20CDK-v2.130.0-green?style=appveyor&logo=amazonaws
+[AwsCdk-url]: https://aws.amazon.com/cdk/
+[ESLint]: https://img.shields.io/badge/ESLint-^8.57.0-green?style=appveyor&logo=eslint
+[ESLint-url]: https://eslint.org
+[GitHubIssue-url]: https://github.com/clemans/net.clemans.Access/issues
 [Jest]: https://img.shields.io/badge/Jest-^29.7.0-green?style=appveyor&logo=jest
 [Jest-url]: https://jestjs.io/
 [Node.js]: https://img.shields.io/badge/Node.js-21.6.1-green?style=appveyor&logo=nodedotjs
 [Node-url]: https://nodejs.org/
 [Typescript]: https://img.shields.io/badge/Typescript-~5.3.3-green?style=appveyor&logo=typescript
 [Typescript-url]: https://www.typescriptlang.org/
-[ESLint]: https://img.shields.io/badge/ESLint-^8.56.0-green?style=appveyor&logo=eslint
-[ESLint-url]: https://eslint.org
-[AwsCdk]: https://img.shields.io/badge/AWS%20CDK-v2.128.0-green?style=appveyor&logo=amazonaws
-[AwsCdk-url]: https://aws.amazon.com/cdk/

@@ -2,15 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## 🏷️ [1.0.0][1.0.0] • 1900-01-01
+## 🏷️ [1.0.0][1.0.0] • 2024-02-25
 
-### Added
+### Adds
 
-- *N/A*
-
-### Fixed
-
-- *N/A*
+- \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Reference Links -->
-[1.0.0]: https://github.com/clemans/com.clemans.Access/tree/1.0.0
+[1.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.0
