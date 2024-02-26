@@ -1,7 +1,7 @@
 {
   "name": "clemans-net-access",
   "author": "Brooks C. Clemans <brooks@clemans.net>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "types": "dist/bin/index.d.ts",
   "main": "dist/bin/index.js",
   "bin": {

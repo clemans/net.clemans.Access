@@ -14,7 +14,7 @@ export class IamUser {
   public Set(params: ICdkUser): IUser {
     const { path, userName, isSmtp } = params;
     return isSmtp
-      ? this.GetGroup(
+      ? this.GetUser(
         new SesSmtpCredentials(this.scope, `${userName}SmtpCredentials`, {
           userName,
         }).node.id
@@ -32,7 +32,7 @@ export class IamUser {
     );
   }
   
-  private GetGroup(userName: string): IUser {
+  private GetUser(userName: string): IUser {
     return this.scope.node.tryFindChild(userName) as User;
   }
 }
