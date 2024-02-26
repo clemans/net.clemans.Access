@@ -36,7 +36,7 @@ export class IamStack extends Stack {
     // Add Users to Groups
     AwsUsers.forEach(AwsUser => CdkUser.AddUserToAssignedGroups(AwsUser));
 
-    // Add Policies to Roles
-    AwsPolicies.forEach(AwsPolicy => CdkPolicy.AddPolicyToAssignedRoles(AwsPolicy));
+    // Add Policies to Roles & Groups
+    AwsPolicies.forEach(AwsPolicy => CdkPolicy.AddPolicyToAssignedRolesAndGroups(AwsPolicy));
   }
 }

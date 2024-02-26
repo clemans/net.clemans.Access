@@ -1,7 +1,7 @@
 {
   "name": "clemans-net-access",
   "author": "Brooks C. Clemans <brooks@clemans.net>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "types": "dist/bin/index.d.ts",
   "main": "dist/bin/index.js",
   "bin": {
@@ -9,12 +9,13 @@
   },
   "scripts": {
     "lint": "npx eslint .",
-    "build": "npm run lint && npm run compile && npm run synth",
+    "build": "npm run lint && npm run compile && npm run synth && npm run diff",
     "compile": "npx tsc",
     "transpile": "npm run compile",
     "synth": "npx cdk synth  | tee ./dist/Stack.yaml",
     "deploy": "npx cdk deploy --all --ci true || exit 1",
     "destroy": "npx cdk destroy --all --force || exit 1",
+    "diff": "npx cdk diff",
     "start": "npm run deploy",
     "test": "npx jest --coverage",
     "watch": "npx tsc -w"
@@ -36,6 +37,7 @@
     "typescript": "~5.3.3"
   },
   "dependencies": {
+    "@pepperize/cdk-ses-smtp-credentials": "^0.3.701",
     "aws-cdk-lib": "^2.130.0",
     "constructs": "^10.3.0",
     "dotenv": "^16.4.5"

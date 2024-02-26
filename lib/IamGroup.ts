@@ -34,7 +34,7 @@ export class IamGroup {
       const { userName, groups } = configUser;
 
       // Check if the user's groups array includes the group's name
-      if (groups.includes(group.groupName)) {
+      if (groups?.includes(group.groupName)) {
         // Find the corresponding AWS user resource
         const awsUser = users.find(user => user.userName === userName);
 
