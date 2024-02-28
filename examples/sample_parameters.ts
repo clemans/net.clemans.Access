@@ -37,18 +37,7 @@ export const CdkGroups: ICdkGroup[] = [
   }
 ];
 
-export const CdkRoles: ICdkRole[] = [
-  {
-    roleName: 'CompanyIo_AdministratorRole',
-    path: '/company-io/roles/',
-    allowedGroups: ['CompanyIo_Administrators'],
-  },
-  {
-    roleName: 'CompanyIo_UserRole',
-    path: '/company-io/roles/',
-    allowedGroups: ['CompanyIo_Users'],
-  }
-];
+export const CdkRoles: ICdkRole[] = [];
 
 export const CdkPolicies: ICdkPolicy[] = [
   {

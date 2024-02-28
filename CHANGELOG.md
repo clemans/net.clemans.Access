@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 🏷️ [1.0.3][1.0.3] • 2024-02-28
+
+### Fixes
+
+- Removes unnecessary roles due to a misunderstanding of principal relationships
+    as it pertains to groups and roles.
+
 ## 🏷️ [1.0.2][1.0.2] • 2024-02-26
 
 ### Fixes
@@ -23,6 +30,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[1.0.3]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.3
 [1.0.2]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.2
 [1.0.1]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.1
 [1.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.0

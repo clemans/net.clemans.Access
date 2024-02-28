@@ -19,6 +19,7 @@
 
 # Ignore JavaScript files
 *.js
+!*.eslintrc.js
 
 # Ignore backup files with "old" in the name
 *.old

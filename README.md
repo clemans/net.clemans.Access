@@ -146,7 +146,8 @@ AWS CloudFormation stack(s).*
   | IGroup          | Adds IAM Group support                         | ✅
   | IPolicy         | Adds IAM Policy Support                        | ✅
   | IRole           | Adds IAM Role support                          | ✅
-  | Unit Coverage   | Adds Jest Unit Test support                    | 📝 WIP
+  | Cost Management | Replace Secrets Manager with Parameter Store   | 📝 WIP
+  | Unit Coverage   | Adds Jest Unit Test support                    | 📚 Backlog
   | GitHub Actions  | Continuous integration and project automation  | 📚 Backlog
 
 See the [open issues][GitHubIssue-url]
