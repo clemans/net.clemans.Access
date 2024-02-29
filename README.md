@@ -146,8 +146,8 @@ AWS CloudFormation stack(s).*
   | IGroup          | Adds IAM Group support                         | ✅
   | IPolicy         | Adds IAM Policy Support                        | ✅
   | IRole           | Adds IAM Role support                          | ✅
-  | Cost Management | Replace Secrets Manager with Parameter Store   | 📝 WIP
-  | Unit Coverage   | Adds Jest Unit Test support                    | 📚 Backlog
+  | Cost Management | Replace Secrets Manager with Parameter Store   | ✅
+  | Unit Coverage   | Adds Jest Unit Test support                    | 📝 WIP
   | GitHub Actions  | Continuous integration and project automation  | 📚 Backlog
 
 See the [open issues][GitHubIssue-url]
@@ -179,6 +179,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
+
 Open a [GitHub Issue][GitHubIssue-url].
 
 ## Acknowledgments

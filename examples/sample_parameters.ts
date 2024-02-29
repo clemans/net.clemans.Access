@@ -92,5 +92,5 @@ export const CdkUsers: ICdkUser[] = [
 export const Tags: { [key: string]: string } =  {
   environment: 'production',
   owner: 'jon.doe@company.io',
-  version: '2.0.0'
+  version: '2.0.1'
 };
