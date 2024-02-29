@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## 🏷️ [2.0.0][2.0.0] • 2024-02-28
+
+### 💥 Breaking Change(s)
+
+- Removing Ses Smtp credential IAM users which will at the very least tear down
+    IAM users and could possibly require a full stack teardown.
+
+### Adds
+
+- Replaces `@pepperize/cdk-ses-smtp-credentials` with `ses-smtp-credentials-cdk`
+  - SSM parameters replace AWS Secret Manager secrets for the sake of saving
+        ~$20 annually (4 secrets @ .40¢ each for 12 months).
+
 ## 🏷️ [1.0.3][1.0.3] • 2024-02-28
 
 ### Fixes
@@ -30,6 +43,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[2.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.0
 [1.0.3]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.3
 [1.0.2]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.2
 [1.0.1]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.1

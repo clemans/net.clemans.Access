@@ -43,7 +43,6 @@ export const CdkPolicies: ICdkPolicy[] = [
   {
     managedPolicyName: 'CompanyIo_AdministratorPolicy',
     groups: ['CompanyIo_Administrators'],
-    roles: ['CompanyIo_AdministratorRole'],
     path: '/company-io/policies/',
     statements: [
       new PolicyStatement({
@@ -83,15 +82,15 @@ export const CdkPolicies: ICdkPolicy[] = [
 ];
 
 export const CdkUsers: ICdkUser[] = [
-  { userName: 'jon.doe', groups: ['CompanyIo_Users', 'CompanyIo_Administrators'], path: '/company-io/users/' },
-  { userName: 'ses.git', path: '/company-io/services/', isSmtp: true },
-  { userName: 'ses.nas', path:  '/company-io/services/', isSmtp: true },
-  { userName: 'ses.ups', path:  '/company-io/services/', isSmtp: true },
-  { userName: 'ses.torrent', path:  '/company-io/services/', isSmtp: true },
+  { userName: 'jon.doe', groups: ['CompanyIo_Administrators'], path: '/company-io/users/' },
+  { userName: 'ses.svc1', path: '/company-io/services/', isSmtp: true },
+  { userName: 'ses.svc2', path: '/company-io/services/', isSmtp: true },
+  { userName: 'ses.svc3', path: '/company-io/services/', isSmtp: true },
+  { userName: 'ses.svc4', path: '/company-io/services/', isSmtp: true },
 ];
 
 export const Tags: { [key: string]: string } =  {
-  environment: 'development',
+  environment: 'production',
   owner: 'jon.doe@company.io',
-  version: '0.0.1'
+  version: '2.0.0'
 };
