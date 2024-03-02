@@ -2,13 +2,14 @@ import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
 export interface ICdkGroup {
   groupName: string;
+  roles?: string[];
   path:  string;
 }
 
 export interface ICdkRole {
   roleName: string;
+  policies?: string[];
   path: string;
-  allowedGroups: string[];
 }
 
 export interface ICdkPolicy {
@@ -23,6 +24,7 @@ export interface ICdkUser {
   isSmtp?: boolean;
   userName: string;
   groups?: string[];
+  roles?: string[];
   path: string;
 }
 
@@ -30,6 +32,7 @@ export const CdkGroups: ICdkGroup[] = [
   {
     groupName: 'CompanyIo_Administrators',
     path: '/company-io/groups/',
+    roles: ['CompanyIo_AdministratorRole']
   },
   {
     groupName: 'CompanyIo_Users',
@@ -37,7 +40,13 @@ export const CdkGroups: ICdkGroup[] = [
   }
 ];
 
-export const CdkRoles: ICdkRole[] = [];
+export const CdkRoles: ICdkRole[] = [
+  {
+    roleName: 'CompanyIo_AdministratorRole',
+    policies: ['CompanyIo_AdministratorPolicy'],
+    path: '/company-io/roles/',
+  },
+];
 
 export const CdkPolicies: ICdkPolicy[] = [
   {
@@ -82,7 +91,12 @@ export const CdkPolicies: ICdkPolicy[] = [
 ];
 
 export const CdkUsers: ICdkUser[] = [
-  { userName: 'jon.doe', groups: ['CompanyIo_Administrators'], path: '/company-io/users/' },
+  { 
+    userName: 'jon.doe',
+    groups: ['CompanyIo_Administrators'],
+    roles: ['CompanyIo_AdministratorRole'],
+    path: '/company-io/users/'
+  },
   { userName: 'ses.svc1', path: '/company-io/services/', isSmtp: true },
   { userName: 'ses.svc2', path: '/company-io/services/', isSmtp: true },
   { userName: 'ses.svc3', path: '/company-io/services/', isSmtp: true },
@@ -92,5 +106,5 @@ export const CdkUsers: ICdkUser[] = [
 export const Tags: { [key: string]: string } =  {
   environment: 'production',
   owner: 'jon.doe@company.io',
-  version: '2.0.1'
+  version: '2.1.0'
 };

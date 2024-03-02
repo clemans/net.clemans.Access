@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## 🏷️ [2.0.1][2.0.1] • 2024-02-29
+## 🏷️ [2.1.0][2.1.0] • 2024-03-01
 
-### Adds
+- Adds support for adding groups to their assigned roles
+- Adds support for adding policies to their assigned groups
+- Adds support for adding roles to their assigned policies
+- Adds support for adding users to their assigned roles
+- General code clean-up and documentation updates
+
+## 🏷️ [2.0.1][2.0.1] • 2024-02-29
 
 - Updates project dependencies
 - Updates roadmap documentation
@@ -40,6 +46,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[2.1.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.1.0
 [2.0.1]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.1
 [2.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.0
 [1.0.3]: https://github.com/clemans/net.clemans.Access/releases/tag/v1.0.3

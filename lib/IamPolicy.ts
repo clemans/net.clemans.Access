@@ -1,7 +1,6 @@
 import { Construct } from 'constructs';
-import { ManagedPolicy } from 'aws-cdk-lib/aws-iam';
+import { IManagedPolicy, ManagedPolicy } from 'aws-cdk-lib/aws-iam';
 import { ICdkPolicy, CdkPolicies } from '../config/parameters';
-import { IamRole } from './IamRole';
 import { IamGroup } from './IamGroup';
 
 export class IamPolicy {
@@ -11,6 +10,23 @@ export class IamPolicy {
     this.scope = scope;
   }
 
+  public AddPolicyToAssignedGroups(Policy: ManagedPolicy): void {
+    const cdkPolicy = this.GetCdkPolicy(Policy);
+    cdkPolicy?.groups?.forEach((group) =>
+      Policy.attachToGroup(new IamGroup(this.scope).GetIamGroup(group))
+    );
+  }
+
+  private GetCdkPolicy(Policy: ManagedPolicy): ICdkPolicy {
+    return CdkPolicies.find(
+      (policy) => policy.managedPolicyName === Policy.node.id
+    ) as ICdkPolicy;
+  }
+  
+  public GetIamPolicy(policyName: string): IManagedPolicy {
+    return this.scope.node.tryFindChild(policyName) as ManagedPolicy;
+  }
+
   public Set(Policy: ICdkPolicy): ManagedPolicy {
     const { managedPolicyName, path, statements } = Policy;
     return new ManagedPolicy(this.scope, managedPolicyName, {
@@ -18,17 +34,5 @@ export class IamPolicy {
       statements,
       path,
     });
-  }
-
-  public AddPolicyToAssignedRolesAndGroups(Policy: ManagedPolicy): void {
-    const cdkPolicy = CdkPolicies.find(
-      (policy) => policy.managedPolicyName === Policy.node.id
-    );
-    cdkPolicy?.roles?.forEach((role) => {
-      Policy.attachToRole(new IamRole(this.scope).GetRole(role));
-    });
-    cdkPolicy?.groups?.forEach((group) =>
-      Policy.attachToGroup(new IamGroup(this.scope).GetGroup(group))
-    );
   }
 }

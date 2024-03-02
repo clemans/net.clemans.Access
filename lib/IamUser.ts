@@ -5,12 +5,35 @@ import { ICdkUser, CdkUsers } from '../config/parameters';
 import { IamGroup } from './IamGroup';
 import { SesSmtpCredentials } from 'ses-smtp-credentials-cdk';
 import { StringParameter } from 'aws-cdk-lib/aws-ssm';
+import { IamRole } from './IamRole';
 
 export class IamUser {
   private readonly scope: Construct;
 
   constructor(scope: Construct) {
     this.scope = scope;
+  }
+
+  public AddUserToAssignedGroups(User: IUser): void {
+    const cdkUser = CdkUsers.find((user) => user.userName === User.node.id);
+    return cdkUser?.groups?.forEach((group) =>
+      User.addToGroup(new IamGroup(this.scope).GetIamGroup(group))
+    );
+  }
+
+  public AddUserToAssignedRoles(User: IUser): void {
+    const cdkUser = this.GetCdkUser(User);
+    return cdkUser?.roles?.forEach((role) =>
+      new IamRole(this.scope).GetIamRole(role).grant(User, 'sts:AssumeRole')
+    );
+  }
+
+  private GetCdkUser(User: IUser): ICdkUser {
+    return CdkUsers.find((user) => user.userName === User.node.id) as ICdkUser;
+  }
+
+  public GetIamUser(userName: string): IUser {
+    return this.scope.node.tryFindChild(userName) as User;
   }
 
   public Set(params: ICdkUser): IUser {
@@ -28,7 +51,7 @@ export class IamUser {
           password: user.password(),
         }),
       });
-      return this.GetUser(user.node.id);
+      return this.GetIamUser(user.node.id);
     }
     else {
       return new User(this.scope, userName, {
@@ -36,16 +59,5 @@ export class IamUser {
         path,
       }) as User;
     }
-  }
-
-  public AddUserToAssignedGroups(User: IUser): void {
-    const cdkUser = CdkUsers.find((user) => user.userName === User.node.id);
-    return cdkUser?.groups?.forEach((group) =>
-      User.addToGroup(new IamGroup(this.scope).GetGroup(group))
-    );
-  }
-
-  private GetUser(userName: string): IUser {
-    return this.scope.node.tryFindChild(userName) as User;
   }
 }
