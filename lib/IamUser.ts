@@ -1,7 +1,8 @@
 import { Construct } from 'constructs';
-import { Stack} from 'aws-cdk-lib';
+import { Stack } from 'aws-cdk-lib';
 import { IUser, User } from 'aws-cdk-lib/aws-iam';
-import { ICdkUser, CdkUsers } from '../config/parameters';
+import { ICdkUser } from '../src/interfaces';
+import { CdkUsers } from '../config/parameters';
 import { IamGroup } from './IamGroup';
 import { SesSmtpCredentials } from 'ses-smtp-credentials-cdk';
 import { StringParameter } from 'aws-cdk-lib/aws-ssm';

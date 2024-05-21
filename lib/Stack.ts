@@ -1,7 +1,8 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { IUser, ManagedPolicy, Role } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
-import { CdkGroups, CdkPolicies, CdkRoles, CdkUsers } from '../config/parameters';
+import { CdkIdPs, CdkGroups, CdkManagedPolicies, CdkRoles, CdkUsers } from '../config/parameters';
+import { IamIdP } from './IamIdP';
 import { IamGroup } from './IamGroup';
 import { IamUser } from './IamUser';
 import { IamRole } from './IamRole';
@@ -12,15 +13,18 @@ export class IamStack extends Stack {
     super(scope, id, props);
 
     // IAM Instances
-    const [CdkGroup, CdkPolicy, CdkRole, CdkUser] = [
-      new IamGroup(this), new IamPolicy(this), new IamRole(this), new IamUser(this),
+    const [CdkIdP, CdkGroup, CdkPolicy, CdkRole, CdkUser] = [
+      new IamIdP(this), new IamGroup(this), new IamPolicy(this), new IamRole(this), new IamUser(this),
     ];
+
+    // Create IdPs
+    CdkIdPs.map(idp => CdkIdP.Set(idp));
 
     // Create Groups 
     CdkGroups.map(group => CdkGroup.Set(group));
 
     // Create Policies
-    const AwsPolicies: ManagedPolicy[] = CdkPolicies.map(policy => CdkPolicy.Set(policy));
+    const AwsPolicies: ManagedPolicy[] = CdkManagedPolicies.map(policy => CdkPolicy.Set(policy));
     
     // Create Roles
     const AwsRoles: Role[] = CdkRoles.map(role => CdkRole.Set(role));

@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { IGroup, Group, IUser } from 'aws-cdk-lib/aws-iam';
-import { ICdkGroup, CdkUsers, CdkGroups } from '../config/parameters';
+import { ICdkGroup } from '../src/interfaces';
+import { CdkUsers, CdkGroups } from '../config/parameters';
 import { IamRole } from './IamRole';
 
 export class IamGroup {
@@ -8,14 +9,6 @@ export class IamGroup {
 
   constructor(scope: Construct) {
     this.scope = scope; 
-  }
-
-  public Set(params: ICdkGroup): Group {
-    const { groupName, path } = params;
-    return new Group(this.scope, groupName, {
-      path,
-      groupName,
-    });
   }
 
   public static AddGroupToUsers(group: Group, users: IUser[]): void {
@@ -47,5 +40,13 @@ export class IamGroup {
 
   public GetIamGroup(groupName: string): IGroup {
     return this.scope.node.tryFindChild(groupName) as Group ;
+  }
+
+  public Set(params: ICdkGroup): Group {
+    const { groupName, path } = params;
+    return new Group(this.scope, groupName, {
+      path,
+      groupName,
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { IManagedPolicy, ManagedPolicy } from 'aws-cdk-lib/aws-iam';
-import { ICdkPolicy, CdkPolicies } from '../config/parameters';
+import { ICdkManagedPolicy } from '../src/interfaces';
+import { CdkManagedPolicies } from '../config/parameters';
 import { IamGroup } from './IamGroup';
 
 export class IamPolicy {
@@ -11,23 +12,23 @@ export class IamPolicy {
   }
 
   public AddPolicyToAssignedGroups(Policy: ManagedPolicy): void {
-    const cdkPolicy = this.GetCdkPolicy(Policy);
+    const cdkPolicy = this.GetCdkManagedPolicy(Policy);
     cdkPolicy?.groups?.forEach((group) =>
       Policy.attachToGroup(new IamGroup(this.scope).GetIamGroup(group))
     );
   }
 
-  private GetCdkPolicy(Policy: ManagedPolicy): ICdkPolicy {
-    return CdkPolicies.find(
+  private GetCdkManagedPolicy(Policy: ManagedPolicy): ICdkManagedPolicy {
+    return CdkManagedPolicies.find(
       (policy) => policy.managedPolicyName === Policy.node.id
-    ) as ICdkPolicy;
+    ) as ICdkManagedPolicy;
   }
   
-  public GetIamPolicy(policyName: string): IManagedPolicy {
+  public GetIamManagedPolicy(policyName: string): IManagedPolicy {
     return this.scope.node.tryFindChild(policyName) as ManagedPolicy;
   }
 
-  public Set(Policy: ICdkPolicy): ManagedPolicy {
+  public Set(Policy: ICdkManagedPolicy): ManagedPolicy {
     const { managedPolicyName, path, statements } = Policy;
     return new ManagedPolicy(this.scope, managedPolicyName, {
       managedPolicyName,

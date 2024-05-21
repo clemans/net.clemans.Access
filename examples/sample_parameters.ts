@@ -1,32 +1,5 @@
-import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
-
-export interface ICdkGroup {
-  groupName: string;
-  roles?: string[];
-  path:  string;
-}
-
-export interface ICdkRole {
-  roleName: string;
-  policies?: string[];
-  path: string;
-}
-
-export interface ICdkPolicy {
-  statements?: PolicyStatement[];
-  path?: string;
-  groups: string[];
-  managedPolicyName: string; 
-  roles?: string[];
-}
-
-export interface ICdkUser {
-  isSmtp?: boolean;
-  userName: string;
-  groups?: string[];
-  roles?: string[];
-  path: string;
-}
+import { Effect, PolicyStatement, } from 'aws-cdk-lib/aws-iam';
+import {ICdkGroup, ICdkRole, ICdkManagedPolicy, ICdkUser} from '../src/interfaces';
 
 export const CdkGroups: ICdkGroup[] = [
   {
@@ -48,7 +21,7 @@ export const CdkRoles: ICdkRole[] = [
   },
 ];
 
-export const CdkPolicies: ICdkPolicy[] = [
+export const CdkManagedPolicies: ICdkManagedPolicy[] = [
   {
     managedPolicyName: 'CompanyIo_AdministratorPolicy',
     groups: ['CompanyIo_Administrators'],
