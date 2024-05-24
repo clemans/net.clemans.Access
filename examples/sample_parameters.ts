@@ -1,5 +1,5 @@
-import { Effect, PolicyStatement, } from 'aws-cdk-lib/aws-iam';
-import {ICdkGroup, ICdkRole, ICdkManagedPolicy, ICdkUser} from '../src/interfaces';
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import {ICdkGroup, ICdkRole, ICdkManagedPolicy,  ICdkUser } from '../src/interfaces';
 
 export const CdkGroups: ICdkGroup[] = [
   {
