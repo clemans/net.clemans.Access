@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 🏷️ [3.0.0][3.0.0] • 2024-05-24
+
+- Adds support for adding identity provider for GitHub Actions
+- Restructured Typescript interfaces
+- Renamed IAM policy method names for readability
+- General code clean-up and documentation updates
+
 ## 🏷️ [2.1.0][2.1.0] • 2024-03-01
 
 - Adds support for adding groups to their assigned roles
@@ -46,6 +53,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[3.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v3.0.0
 [2.1.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.1.0
 [2.0.1]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.1
 [2.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.0
