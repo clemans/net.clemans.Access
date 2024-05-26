@@ -1,5 +1,8 @@
 import { Construct } from 'constructs';
-import { IOpenIdConnectProvider, OpenIdConnectProvider } from 'aws-cdk-lib/aws-iam';
+import {
+  IOpenIdConnectProvider,
+  OpenIdConnectProvider,
+} from 'aws-cdk-lib/aws-iam';
 import { ICdkIdP } from '../src/interfaces';
 
 export class IamIdP {
@@ -10,7 +13,9 @@ export class IamIdP {
   }
 
   private GetOIDCProvider(oidcProviderName: string): IOpenIdConnectProvider {
-    return this.scope.node.tryFindChild(oidcProviderName) as OpenIdConnectProvider;
+    return this.scope.node.tryFindChild(
+      oidcProviderName,
+    ) as OpenIdConnectProvider;
   }
 
   public GetOIDCProviderArn(oidcProviderName: string) {
@@ -22,7 +27,7 @@ export class IamIdP {
     const { oidcProviderName, url, clientIds } = params;
     return new OpenIdConnectProvider(this.scope, oidcProviderName, {
       url,
-      clientIds
-    }); 
+      clientIds,
+    });
   }
 }

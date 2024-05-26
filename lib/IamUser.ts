@@ -18,14 +18,14 @@ export class IamUser {
   public AddUserToAssignedGroups(User: IUser): void {
     const cdkUser = CdkUsers.find((user) => user.userName === User.node.id);
     return cdkUser?.groups?.forEach((group) =>
-      User.addToGroup(new IamGroup(this.scope).GetIamGroup(group))
+      User.addToGroup(new IamGroup(this.scope).GetIamGroup(group)),
     );
   }
 
   public AddUserToAssignedRoles(User: IUser): void {
     const cdkUser = this.GetCdkUser(User);
     return cdkUser?.roles?.forEach((role) =>
-      new IamRole(this.scope).GetIamRole(role).grant(User, 'sts:AssumeRole')
+      new IamRole(this.scope).GetIamRole(role).grant(User, 'sts:AssumeRole'),
     );
   }
 
@@ -43,7 +43,7 @@ export class IamUser {
       const user = new SesSmtpCredentials(
         this.scope,
         `${userName}SmtpCredentials`,
-        { region: Stack.of(this.scope).region }
+        { region: Stack.of(this.scope).region },
       );
       new StringParameter(this.scope, `${userName}CredentialParameter`, {
         parameterName: `${userName}Credentials`,
@@ -53,8 +53,7 @@ export class IamUser {
         }),
       });
       return this.GetIamUser(user.node.id);
-    }
-    else {
+    } else {
       return new User(this.scope, userName, {
         userName,
         path,

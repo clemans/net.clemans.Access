@@ -14,16 +14,16 @@ export class IamPolicy {
   public AddPolicyToAssignedGroups(Policy: ManagedPolicy): void {
     const cdkPolicy = this.GetCdkManagedPolicy(Policy);
     cdkPolicy?.groups?.forEach((group) =>
-      Policy.attachToGroup(new IamGroup(this.scope).GetIamGroup(group))
+      Policy.attachToGroup(new IamGroup(this.scope).GetIamGroup(group)),
     );
   }
 
   private GetCdkManagedPolicy(Policy: ManagedPolicy): ICdkManagedPolicy {
     return CdkManagedPolicies.find(
-      (policy) => policy.managedPolicyName === Policy.node.id
+      (policy) => policy.managedPolicyName === Policy.node.id,
     ) as ICdkManagedPolicy;
   }
-  
+
   public GetIamManagedPolicy(policyName: string): IManagedPolicy {
     return this.scope.node.tryFindChild(policyName) as ManagedPolicy;
   }
