@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 🏷️ [4.0.0][4.0.0] • 2024-05-24
+
+### 💥 Breaking Change(s)
+
+- Reworks IAM role creation for IdP trust relationship integration
+- Adds better linting and formatting using Prettier integration in ESLint
+
 ## 🏷️ [3.0.0][3.0.0] • 2024-05-24
+
+### 💥 Breaking Change(s)
 
 - Adds support for adding identity provider for GitHub Actions
 - Restructured Typescript interfaces
@@ -53,6 +62,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[4.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v4.0.0
 [3.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v3.0.0
 [2.1.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.1.0
 [2.0.1]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.0.1
