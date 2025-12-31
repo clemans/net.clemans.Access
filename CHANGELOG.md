@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 🏷️ [4.1.0][4.1.0] • 2025-12-30
+
+- Updates packages (`package.json`)
+- Adds AWS cached context values (`cdk.context.json`)
+- Migrates legacy ESLint configuration file to ESM format
+
 ## 🏷️ [4.0.0][4.0.0] • 2024-05-24
 
 ### 💥 Breaking Change(s)
@@ -62,6 +68,7 @@ All notable changes to this project will be documented in this file.
 - \[**Feature**\] Support for IAM: Users, Groups, Roles, Policies (and their relationships)
 
 <!-- Tags -->
+[4.1.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v4.1.0
 [4.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v4.0.0
 [3.0.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v3.0.0
 [2.1.0]: https://github.com/clemans/net.clemans.Access/releases/tag/v2.1.0
